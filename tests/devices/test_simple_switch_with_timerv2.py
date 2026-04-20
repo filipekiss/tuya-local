@@ -10,8 +10,6 @@ INITIAL_STATE_DPS = "38"
 
 
 class TestTimedSwitch(SwitchableTests, TuyaDeviceTestCase):
-    __test__ = True
-
     def setUp(self):
         self.setUpForConfig("simple_switch_timerv2.yaml", TIMED_SOCKETV2_PAYLOAD)
         self.subject = self.entities.get("switch")
@@ -30,8 +28,8 @@ class TestTimedSwitch(SwitchableTests, TuyaDeviceTestCase):
         )
 
     def test_available(self):
-        for id, e in self.entities.items():
-            if id == "select_initial_state":
+        for entid, e in self.entities.items():
+            if entid == "select_initial_state":
                 self.dps[INITIAL_STATE_DPS] = None
                 self.assertFalse(e.available)
                 self.dps[INITIAL_STATE_DPS] = "on"
