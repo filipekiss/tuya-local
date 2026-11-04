@@ -1254,6 +1254,7 @@ port and password.
 - Doel cat litter box
 - Duoqu Neo-A cat litter box
 - Dxophiex fish feeder
+- Ellenpent CH-ICB028 cat litter box
 - Els Pet Spaceship and Orbitie pet litter boxes
 - Evergreen Solar bird feeder camera
 - Faroro PF50 pet feeder

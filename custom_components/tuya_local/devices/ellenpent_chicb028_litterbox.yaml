@@ -1,0 +1,196 @@
+name: Cat litter box
+products:
+  - id: h7nowvsq2uhhzyly
+    manufacturer: Ellenpent
+    model: CH-ICB028
+    model_id: DE07-10119
+entities:
+  - entity: switch
+    dps:
+      - id: 1
+        type: boolean
+        name: switch
+  - entity: button
+    name: Clean
+    icon: "mdi:broom"
+    dps:
+      - id: 3
+        type: boolean
+        name: button
+  - entity: button
+    name: Empty litter
+    icon: "mdi:delete-empty"
+    dps:
+      - id: 101
+        type: boolean
+        name: button
+  - entity: sensor
+    translation_key: status
+    class: enum
+    dps:
+      - id: 24
+        type: string
+        name: sensor
+        mapping:
+          - dps_val: standby
+            value: standby
+          - dps_val: "off"
+            value: "off"
+          - dps_val: waiting_cluster
+            value: caking
+          - dps_val: cleaning
+            value: cleaning
+          - dps_val: defecation
+            value: occupied
+          - dps_val: Entrance_abnormality
+            value: blocked
+          - dps_val: POOP
+            value: waiting
+          - dps_val: empty
+            value: emptying
+  - entity: sensor
+    name: Times used
+    dps:
+      - id: 104
+        type: integer
+        name: sensor
+        unit: times
+        class: total_increasing
+      - id: 7
+        type: integer
+        name: today
+  - entity: sensor
+    name: Daily use
+    class: duration
+    dps:
+      - id: 8
+        type: integer
+        optional: true
+        name: sensor
+        unit: s
+        class: measurement
+  - entity: binary_sensor
+    class: problem
+    category: diagnostic
+    dps:
+      - id: 22
+        type: bitfield
+        name: sensor
+        mapping:
+          - dps_val: 0
+            value: false
+          - dps_val: null
+            value: false
+          - value: true
+      - id: 22
+        type: bitfield
+        name: fault_code
+  - entity: number
+    name: Clean delay
+    class: duration
+    category: config
+    dps:
+      - id: 5
+        type: integer
+        name: value
+        unit: min
+        range:
+          min: 1
+          max: 10
+  - entity: switch
+    translation_key: sleep
+    category: config
+    dps:
+      - id: 10
+        type: boolean
+        name: switch
+  - entity: time
+    name: Sleep start
+    category: config
+    dps:
+      - id: 117
+        type: integer
+        name: hour
+        range:
+          min: 0
+          max: 23
+  - entity: time
+    name: Sleep end
+    category: config
+    dps:
+      - id: 118
+        type: integer
+        name: hour
+        range:
+          min: 0
+          max: 23
+  - entity: switch
+    name: Manual mode
+    icon: "mdi:hand-back-left"
+    category: config
+    dps:
+      - id: 107
+        type: boolean
+        name: switch
+  - entity: switch
+    name: Deep clean
+    icon: "mdi:shimmer"
+    category: config
+    dps:
+      - id: 116
+        type: boolean
+        name: switch
+  - entity: lock
+    translation_key: child_lock
+    category: config
+    dps:
+      - id: 114
+        type: boolean
+        name: lock
+  - entity: number
+    name: Anti-scatter mode
+    icon: "mdi:arrow-collapse-up"
+    category: config
+    dps:
+      - id: 115
+        type: integer
+        name: value
+        range:
+          min: 0
+          max: 3
+  - entity: select
+    name: Litter type
+    category: config
+    dps:
+      - id: 102
+        type: string
+        name: option
+        mapping:
+          - dps_val: bentonite
+            value: Bentonite
+          - dps_val: tufu_paste
+            value: Tofu paste
+          - dps_val: mineral_sand
+            value: Mineral sand
+  - entity: select
+    translation_key: language
+    category: config
+    dps:
+      - id: 119
+        type: string
+        name: option
+        mapping:
+          - dps_val: CHINESE
+            value: chinese
+          - dps_val: ENGLISH
+            value: english
+          - dps_val: FRIENCE
+            value: french
+          - dps_val: GERMAN
+            value: german
+          - dps_val: ITALIAN
+            value: italian
+          - dps_val: SPANISH
+            value: spanish
+          - dps_val: DUTCH
+            value: dutch
